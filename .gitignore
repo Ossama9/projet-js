@@ -1,5 +1,5 @@
 /.idea/
 /.npm/
-/nodes_modules/
+nodes_modules/
 package-lock.json
 .node_repl_history
