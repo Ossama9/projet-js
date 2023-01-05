@@ -6,9 +6,26 @@
         <meta name="description" content="JavaScript">
         <meta name="theme-color" content="#ffffff">
         <title>JavaScript</title>
-        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="horloge.css">
     </head>
-    <body>
-        <script src="./index.js"></script>
+    <body onload=displayTime();>
+    <h1>Horloge</h1>
+    <div style="text-align: center">
+        <span id='horloge'></span>
+    </div>
+    <div id="time"></div>
+    <form name="parametre" action="" method="" style="text-align: center">
+        <input type="button" name="lance" value="Démarrer" onClick="chrono();debut();">
+        <input type="button" name="pause" value="Stop" onClick="arret();" disabled="disabled">
+        <input type="button" name="zero" value="Effacer" onClick="arret();raz();" disabled="disabled">
+        <input type="button" name="intermediaire" value="Intermediaire" onClick="inter();" disabled="disabled">
+        <input type="button" name="rappel" value="Rappel" onClick="rappeler();" disabled="disabled">
+    </form>
+    <div id="presenter">
+        <p>Temps intermediaire : </p>
+        <span id="interm"></span>
+    </div>
+
+     <script src="horloge.js"></script>
     </body>
 </html>
