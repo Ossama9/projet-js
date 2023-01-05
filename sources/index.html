@@ -6,35 +6,40 @@
     <meta name="description" content="JavaScript">
     <meta name="theme-color" content="#ffffff">
     <title>JavaScript</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="style/calculatrice.css">
 </head>
 <body>
-<section>
-    <h2>
-        Calculator
-    </h2>
-    <br>
 
-    <br>
-    <span id="total"></span>
-    <br>
-    <br>
-    <input type="button" value="1" id="1">
-    <input type="button" value="2" id="2">
-    <input type="button" value="3" id="3">
-    <input type="button" value="4" id="4">
-    <input type="button" value="5" id="5">
-    <input type="button" value="6" id="6">
-    <input type="button" value="7" id="7">
-    <input type="button" value="8" id="8">
-    <input type="button" value="9" id="9">
-    <br>
-    <input type="button" value="+" id="addition">
-    <input type="button" value="=" id="egal">
 
-    <br>
-    <span id="result"></span>
-</section>
-<script src="./index.js"></script>
+    <h1>Calculatrice</h1>
+    <div class="container">
+        <div class="calculatrice">
+            <input type="text" placeholder="0" id="output-screen">
+            <button onclick="Clear()">Cl</button>
+            <button onclick="del()">del</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculatrice()" class="egale">=</button>
+
+
+        </div>
+
+    </div>
+
+<script src="calculatrice.js"></script>
 </body>
 </html>
