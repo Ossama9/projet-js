@@ -6,13 +6,15 @@
         <meta name="description" content="JavaScript">
         <meta name="theme-color" content="#ffffff">
         <title>JavaScript</title>
-        <link rel="stylesheet" href="horloge.css">
+        <link rel="stylesheet" href="style/horloge.css">
     </head>
     <body onload=displayTime();>
     <h1>Horloge</h1>
     <div style="text-align: center">
         <span id='horloge'></span>
     </div>
+
+
     <div id="time"></div>
     <form name="parametre" action="" method="" style="text-align: center">
         <input type="button" name="lance" value="Démarrer" onClick="chrono();debut();">
@@ -26,6 +28,14 @@
         <span id="interm"></span>
     </div>
 
+
+    <div id="minuterie"></div>
+    <button onClick="minuterie()">Démarrer</button>
+
+
      <script src="horloge.js"></script>
+
+
+
     </body>
 </html>

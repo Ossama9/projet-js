@@ -18,16 +18,19 @@ setInterval(displayTime, 1000);
 var centi = 0;
 var mili = 0;
 var sec = 0;
+var sec_m = 3;
 var sec_;
 var afficher;
 var compteur;
 
 // affichage du compteur à 0
 document.getElementById('time').innerHTML = "0" + sec + ":" + "0" + mili;
-
+document.getElementById('minuterie').innerHTML = sec_m + ":" + "0" + mili;
 
 
 function chrono() {
+    const audio = new Audio('./style/horloge4.mp3');
+
     setInterval(function (){
         mili++;
         if (mili > 9) {
@@ -41,6 +44,7 @@ function chrono() {
     if (centi > 9) {
         centi = 0;
         sec++;
+        audio.play();
     }
 
     if (sec < 10) {
@@ -56,6 +60,23 @@ function chrono() {
     reglage = window.setTimeout("chrono();",100);
 }
 
+
+centi_m=0;
+function minuterie() {
+    centi_m++;
+    if (sec_m==0){
+        const audio = new Audio('./style/finish.mp3');
+        audio.play();
+        return 0;
+    }
+    if (centi_m > 9) {
+        centi_m = 0;
+        sec_m--;
+    }
+    afficher = sec_m + ":" + centi_m;
+    document.getElementById("minuterie").innerHTML = afficher;
+    reglage = window.setTimeout("minuterie();",100);
+}
 
 function debut()  //== Activation et désactivation des boutons
 {
