@@ -18,7 +18,7 @@ setInterval(displayTime, 1000);
 var centi = 0;
 var mili = 0;
 var sec = 0;
-var sec_m = 3;
+var sec_m = document.getElementById('nombresec').value;
 var sec_;
 var afficher;
 var compteur;
@@ -29,7 +29,7 @@ document.getElementById('minuterie').innerHTML = sec_m + ":" + "0" + mili;
 
 
 function chrono() {
-    const audio = new Audio('./style/horloge4.mp3');
+    const audio = new Audio('./style/horloge3.mp3');
 
     setInterval(function (){
         mili++;

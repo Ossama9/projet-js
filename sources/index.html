@@ -8,34 +8,118 @@
         <title>JavaScript</title>
         <link rel="stylesheet" href="style/horloge.css">
     </head>
+    <style>
+        .slideshow-container {
+            max-width: 1200px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+    </style>
     <body onload=displayTime();>
-    <h1>Horloge</h1>
-    <div style="text-align: center">
-        <span id='horloge'></span>
+
+    <div style="text-align:center">
+        <span  onclick="currentSlide(1)"><img src="style/montre-chronographe.png" style="height:50px;"></span>
+        <span  onclick="currentSlide(2)"><img src="style/chronometre.png" style="height:50px;"></span>
+        <span  onclick="currentSlide(3)"><img src="style/minuteur.png" style="height:50px;"></span>
     </div>
 
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <h1>Horloge</h1>
+            <div style="text-align: center">
+                <span id='horloge'></span>
+            </div>
+        </div>
 
-    <div id="time"></div>
-    <form name="parametre" action="" method="" style="text-align: center">
-        <input type="button" name="lance" value="Démarrer" onClick="chrono();debut();">
-        <input type="button" name="pause" value="Stop" onClick="arret();" disabled="disabled">
-        <input type="button" name="zero" value="Effacer" onClick="arret();raz();" disabled="disabled">
-        <input type="button" name="intermediaire" value="Intermediaire" onClick="inter();" disabled="disabled">
-        <input type="button" name="rappel" value="Rappel" onClick="rappeler();" disabled="disabled">
-    </form>
-    <div id="presenter">
-        <p>Temps intermediaire : </p>
-        <span id="interm"></span>
+        <div class="mySlides fade">
+            <h1>Chrono</h1>
+            <div id="time"></div>
+            <form name="parametre" action="" method="" style="text-align: center">
+                <input type="button" name="lance" value="Démarrer" onClick="chrono();debut();">
+                <input type="button" name="pause" value="Stop" onClick="arret();" disabled="disabled">
+                <input type="button" name="zero" value="Effacer" onClick="arret();raz();" disabled="disabled">
+                <input type="button" name="intermediaire" value="Intermediaire" onClick="inter();" disabled="disabled">
+                <input type="button" name="rappel" value="Rappel" onClick="rappeler();" disabled="disabled">
+            </form>
+            <div id="presenter">
+                <p>Temps intermediaire : </p>
+                <span id="interm"></span>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <h1>Minuterie</h1>
+            <form style="text-align: center">
+                <div id="minuterie"> </div>
+                <input id="nombresec" type="number" onclick="">
+                <input type="button" name="demarrer" value="Démarrer" onClick="minuterie()">
+            </form>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a onclick="plusSlides(-1)" style="visibility:hidden">&#10094;</a>
+        <a onclick="plusSlides(1)"  style="visibility:hidden">&#10095;</a>
     </div>
+    <br>
+
+  <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+          showSlides(slideIndex += n);
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+          showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+      }
+  </script>
 
 
-    <div id="minuterie"></div>
-    <button onClick="minuterie()">Démarrer</button>
 
 
      <script src="horloge.js"></script>
-
-
-
     </body>
 </html>
