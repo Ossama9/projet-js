@@ -57,7 +57,7 @@ class Battery {
     getChargingTime() {
         this.chargingTime = this.battery.chargingTime / 60;
         if (this.chargingTime === Infinity) {
-            return false
+            return -1
         }
         return this.chargingTime
     }
@@ -80,7 +80,7 @@ class Battery {
             }
         })
         this.battery.addEventListener('chargingtimechange', () => {
-            if (this.isInCharge()) {
+            if (this.isInCharge() === -1) {
                 console.log("Le temps de charge  test restant est de " + this.getChargingTime() + " minutes");
             }
         });
