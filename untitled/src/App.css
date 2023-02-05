@@ -1,6 +1,21 @@
 .App {
   text-align: center;
 }
+/*return `${value}h`*/
+/*
+
+<XAxis dataKey="hour" tickLine={false} tickFormatter={(value, index) => {
+                                                                        const length = data.length
+                                                                        if (index === 0)
+                                                                      return `${value}h`
+                                                                      if (index === length - 1)
+                                                                      return `${value}h`
+                                                                      if (index === (length - 1) / 2)
+                                                                      return `${value}h`
+                                                                      else
+                                                                      return ''
+                                                                      }}/>
+*/
 
 .App-logo {
   height: 40vmin;

@@ -1,55 +1,23 @@
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import Component from "./Component";
+import axios from "axios";
+
 function App() {
-    const Data = [
-        {
-            "hour": 10,
-            "value": 8
-        },
-        {
-            "hour": 11,
-            "value": 10
-        },
-        {
-            "hour": 12,
-            "value": 13
-        },
-        {
-            "hour": 13,
-            "value": 16
-        },
-        {
-            "hour": 14,
-            "value": 15
-        },
-        {
-            "hour": 15,
-            "value": 8 },
-        {
-            "hour": 16,
-            "value": 7 },
-        {
-            "hour": 17,
-            "value": 15
-        },
-        {
-            "hour": 18,
-            "value": 20
-        },
-        {
-            "hour": 19,
-            "value": 11
-        },
-        {
-            "hour": 20,
-            "value": 8 }
-    ]
-  return (
-    <div className="App">
-      <Component  data={Data}/>
-    </div>
-  );
+
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/data')
+            .then(response => setData(response.data))
+            .catch(error => console.error(error));
+    }, []);
+
+    return (
+        <div className="App">
+            <Component data={data}/>
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,17 @@
+.my-title-component {
+    background-color: #F7F8FE;
+    color: #535353;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.my-title-component svg {
+    margin: 0 5px;
+}
+
+.my-title-component p {
+    margin-left: 5px;
+}
