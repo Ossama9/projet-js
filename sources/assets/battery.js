@@ -80,5 +80,4 @@ class BatteryManager {
 
 }
 
-const batteryManager = new BatteryManager();
-batteryManager.init();
+export {BatteryManager}
