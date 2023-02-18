@@ -1,5 +1,3 @@
-
-
 class BatteryManager {
     constructor() {
         this.battery = null;
