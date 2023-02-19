@@ -1,12 +1,17 @@
 class NetworkLatency {
-    constructor(host) {
-        this.host = host;
+    _host
+    set host(value) {
+        this._host = 'https://'+ value;
+    }
+
+    constructor() {
         this.latencyEl = document.querySelector("#latency")
     }
 
+
     getLatency() {
         const start = new Date().getTime();
-        return fetch(this.host, {
+        return fetch(this._host, {
             mode: 'no-cors',
             headers: {
                 'Access-Control-Allow-Origin': 'http://localhost:8000'

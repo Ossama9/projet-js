@@ -36,7 +36,6 @@ class BatteryManager {
     }
     updateChargeInfo() {
         if (this.isInCharge()) {
-            console.log(this.chargingBarEl)
             this.chargingBarEl.style.animationIterationCount = "infinite";
             this.chargingIconEl.style.display = "inline-flex";
             this.otherInfoEl.style.display = "none";
