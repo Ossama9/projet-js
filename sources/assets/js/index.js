@@ -9,7 +9,6 @@ const networkLatency = new NetworkLatency()
 
 
 
-
 networkLatency.measurePeriodicLatency()
 battery.init();
 clock.start();

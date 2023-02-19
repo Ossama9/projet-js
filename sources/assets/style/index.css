@@ -1,4 +1,6 @@
-
+.icon-app{
+height: 8vh;
+}
 .battery {
     display: flex;
     align-items: center;
@@ -61,7 +63,7 @@ html, body {
     font-weight: bold;
 }
 body{
-    background-image: url("background_image.jpeg");
+    background-image: url("../images/background_image.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: gray;
@@ -95,14 +97,13 @@ header section{
     width: 100vw;
 }
 #left-side{
-    background-color: red;
     width: calc(20% - 20px);
     padding: 20px;
     box-sizing: border-box;
 }
 #application-content{
-    background-color: blanchedalmond;
-    width: calc(80%);
+    position: absolute;
+    width: calc(100%);
 }
 .list-icon{
     display: flex;
