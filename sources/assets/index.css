@@ -67,22 +67,22 @@ body{
     background-color: gray;
 }
 header{
-    height: 50px;
+    height: 60px;
     background-color: hsla(0, 0%, 38%, 0.7);
     display: flex;
     justify-content: space-around;
     align-items: center;
     align-content: center;
     flex-wrap: nowrap;
-    /*flex-direction: row;*/
-    /*align-items: center;*/
 }
+
 header section{
     display: flex;
     flex-wrap: nowrap;
     width: 20%;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
 }
 #container{
     min-height: 100vh;
@@ -127,4 +127,11 @@ header section{
 }
 .list-icon .element .title-element{
     width: fit-content;
+}
+#icon-latency path{
+    fill:  limegreen;
+}
+#network-latency{
+    display: flex;
+    align-items: center;
 }
