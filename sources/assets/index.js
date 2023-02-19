@@ -1,9 +1,4 @@
-import {NetworkLatency} from "./NetworkLatency";
-import {BatteryManager} from "./battery";
+import {Clock} from "./Clock";
 
-
-const latency = new NetworkLatency('https://www.google.com/')
-latency.measurePeriodicLatency()
-
-const batteryManager = new BatteryManager();
-batteryManager.init();
+const clock = new Clock();
+clock.start();
