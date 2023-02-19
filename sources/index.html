@@ -7,39 +7,48 @@
     <meta name="theme-color" content="#ffffff">
     <title>JavaScript</title>
     <link rel="stylesheet" href="style/calculatrice.css">
+    <link rel="stylesheet" href="style/fenetre.css">
 </head>
 <body>
-
-
-    <h1>Calculatrice</h1>
-    <div class="container">
-        <div class="calculatrice">
-            <input type="text" placeholder="0" id="output-screen">
-            <button onclick="Clear()">Cl</button>
-            <button onclick="del()">del</button>
-            <button onclick="display('%')">%</button>
-            <button onclick="display('/')">/</button>
-            <button onclick="display('7')">7</button>
-            <button onclick="display('8')">8</button>
-            <button onclick="display('9')">9</button>
-            <button onclick="display('*')">*</button>
-            <button onclick="display('4')">4</button>
-            <button onclick="display('5')">5</button>
-            <button onclick="display('6')">6</button>
-            <button onclick="display('-')">-</button>
-            <button onclick="display('1')">1</button>
-            <button onclick="display('2')">2</button>
-            <button onclick="display('3')">3</button>
-            <button onclick="display('+')">+</button>
-            <button onclick="display('.')">.</button>
-            <button onclick="display('0')">0</button>
-            <button onclick="calculatrice()" class="egale">=</button>
-
-
+<div class="window" id="window">
+    <div class="titlebar">
+        <div class="title">Ma fenêtre</div>
+        <div class="buttons">
+            <button class="minimize" onclick="closeWin()">-</button>
+            <button class="maximize" onclick="fullwidth();">&#9633;</button>
+            <button class="close"  onclick="closeWin()">x</button>
         </div>
-
     </div>
-
+    <!--  contenue  -->
+    <div class="content">
+        <div class="container">
+            <div class="calculatrice">
+                <input type="text" placeholder="0" id="output-screen">
+                <button class="btn-calculatrice" onclick="Clear()">Cl</button>
+                <button class="btn-calculatrice"  onclick="del()">del</button>
+                <button class="btn-calculatrice"  onclick="display('%')">%</button>
+                <button class="btn-calculatrice"  onclick="display('/')">/</button>
+                <button class="btn-calculatrice"  onclick="display('7')">7</button>
+                <button class="btn-calculatrice"  onclick="display('8')">8</button>
+                <button class="btn-calculatrice"  onclick="display('9')">9</button>
+                <button class="btn-calculatrice"  onclick="display('*')">*</button>
+                <button class="btn-calculatrice"  onclick="display('4')">4</button>
+                <button class="btn-calculatrice"  onclick="display('5')">5</button>
+                <button class="btn-calculatrice"  onclick="display('6')">6</button>
+                <button class="btn-calculatrice"  onclick="display('-')">-</button>
+                <button class="btn-calculatrice"  onclick="display('1')">1</button>
+                <button class="btn-calculatrice"  onclick="display('2')">2</button>
+                <button class="btn-calculatrice"  onclick="display('3')">3</button>
+                <button class="btn-calculatrice"  onclick="display('+')">+</button>
+                <button class="btn-calculatrice"  onclick="display('.')">.</button>
+                <button class="btn-calculatrice"  onclick="display('0')">0</button>
+                <button class="btn-calculatrice"  onclick="calculatrice()" class="egale">=</button>
+            </div>
+        </div>
+    </div>
+    <!-- Contenue -->
+</div>
 <script src="calculatrice.js"></script>
+<script src="fenetre.js"></script>
 </body>
 </html>
