@@ -1,7 +1,7 @@
 class NetworkLatency {
     constructor(host) {
         this.host = host;
-        this.latency = document.querySelector("#latency")
+        this.latencyEl = document.querySelector("#latency")
     }
 
     getLatency() {
@@ -18,7 +18,7 @@ class NetworkLatency {
     }
     measurePeriodicLatency(){
         setInterval(async ()=>{
-            this.latency.innerHTML = await this.getLatency() + ' ms'
+            this.latencyEl.innerHTML = await this.getLatency() + ' ms'
         }, 1000);
     }
 }

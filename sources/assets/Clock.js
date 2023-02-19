@@ -24,8 +24,8 @@ class Clock {
             "Vendredi",
             "Samedi"
         ];
-        this.time = document.querySelector("#time")
-        this.date = document.querySelector("#date")
+        this.timeEl = document.querySelector("#time")
+        this.dateEl = document.querySelector("#date")
     }
 
     start() {
@@ -39,8 +39,8 @@ class Clock {
             const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
             const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
 
-            this.time.innerHTML = `${hours}:${minutes}:${seconds}`;
-            this.date.innerHTML = `${jourEnStr} ${day} ${moisEnStr} ${year}`;
+            this.timeEl.innerHTML = `${hours}:${minutes}:${seconds}`;
+            this.dateEl.innerHTML = `${jourEnStr} ${day} ${moisEnStr} ${year}`;
         }, 100);
     }
 

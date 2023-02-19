@@ -1,15 +1,7 @@
-import {Clock} from "./Clock";
-import {BatteryManager} from "./battery";
-import {NetworkLatency} from "./NetworkLatency";
-
-const clock = new Clock();
-const battery = new BatteryManager();
-const networkLatency = new NetworkLatency()
+import {LocalStorageManager} from "./LocalStorageManager";
+import {Settings} from "./Settings";
 
 
 
 
-
-networkLatency.measurePeriodicLatency()
-battery.init();
-clock.start();
+const settings = new Settings();
