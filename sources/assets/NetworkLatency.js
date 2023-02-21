@@ -8,8 +8,9 @@ class NetworkLatency {
 
     constructor() {
         this.latencyEl = document.querySelector("#latency")
+        this.iconLatencyEl = document.querySelector("#icon-latency")
         this.localStorageManager = new LocalStorageManager('mySettings')
-
+        this.iconLatencyEl.style.display = 'none'
     }
 
 
@@ -27,9 +28,12 @@ class NetworkLatency {
     }
 
     measurePeriodicLatency() {
-        setInterval(async () => {
-            this.latencyEl.innerHTML = await this.getLatency() + ' ms'
-        }, this.localStorageManager.getProperty("refreshInterval") ?? 1000);
+        if (this.localStorageManager.getProperty("showNetworkLatency")) {
+            setInterval(async () => {
+                this.latencyEl.innerHTML = await this.getLatency() + ' ms'
+                this.iconLatencyEl.style.display = 'block'
+            }, this.localStorageManager.getProperty("refreshInterval") ?? 1000);
+        }
     }
 }
 
