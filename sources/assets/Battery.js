@@ -1,3 +1,5 @@
+import {LocalStorageManager} from "./LocalStorageManager";
+
 class BatteryManager {
     constructor() {
         this.battery = null;
@@ -5,6 +7,8 @@ class BatteryManager {
         this.chargingBarEl = document.querySelector(".charging_bar");
         this.chargingIconEl = document.querySelector(".charging_icon");
         this.otherInfoEl = document.querySelector(".other_info");
+        this.localStorageManager = new LocalStorageManager('mySettings')
+
     }
 
 
@@ -15,15 +19,20 @@ class BatteryManager {
             this.addBatteryEventListeners();
         });
     }
+
     updateAllBatteryInfo() {
         this.updateChargeInfo();
         this.updateLevelInfo();
         this.updateDischargingInfo();
     }
+
     updateLevelInfo() {
-        this.batteryLevelEl.textContent = this.getChargeLevel();
-        this.chargingBarEl.style.width = this.getChargeLevel();
+        if (this.localStorageManager.getProperty("showLevelBattery")) {
+            this.batteryLevelEl.textContent = this.getChargeLevel();
+            this.chargingBarEl.style.width = this.getChargeLevel();
+        }
     }
+
     updateDischargingInfo() {
         if (this.getDisChargingTime()) {
             this.getDisChargingTime().textContent = `${parseInt(
@@ -34,6 +43,7 @@ class BatteryManager {
             this.otherInfoEl.style.display = "none";
         }
     }
+
     updateChargeInfo() {
         if (this.isInCharge()) {
             this.chargingBarEl.style.animationIterationCount = "infinite";
@@ -45,6 +55,7 @@ class BatteryManager {
             this.chargingBarEl.style.animationIterationCount = "initial";
         }
     }
+
     addBatteryEventListeners() {
         this.battery.addEventListener("chargingchange", () => {
             this.updateAllBatteryInfo();

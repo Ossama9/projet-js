@@ -2,6 +2,9 @@ import {Settings} from "./Settings";
 import {BatteryManager} from "./Battery";
 import {Clock} from "./Clock";
 import {NetworkLatency} from "./NetworkLatency";
+import {LocalStorageManager} from "./LocalStorageManager";
+
+const localStorageManager = new LocalStorageManager('mySettings')
 
 
 const settings = new Settings();
@@ -11,5 +14,5 @@ const battery = new BatteryManager();
 
 clock.start()
 battery.init()
-latency.host = 'google.com';
+latency.host = localStorageManager.getProperty("pingServer") ?? 'google.com'
 latency.measurePeriodicLatency()

@@ -4,7 +4,6 @@ class Settings {
     constructor() {
         this.showLevelBatteryEl = document.querySelector("#show_level_battery")
 
-        this.showDateEl = document.querySelector("#show-date")
         this.showYearEl = document.querySelector("#show-year");
         this.showMonthEl = document.querySelector("#show-month");
         this.showDayEl = document.querySelector("#show-day");
@@ -29,7 +28,6 @@ class Settings {
     handleInputs() {
         this.localStorageManager.setProperty('showLevelBattery', this.showLevelBatteryEl.checked);
 
-        this.localStorageManager.setProperty('showDate', this.showDateEl.checked);
         this.localStorageManager.setProperty('showYear', this.showYearEl.checked);
         this.localStorageManager.setProperty('showMonth', this.showMonthEl.checked);
         this.localStorageManager.setProperty('showDay', this.showDayEl.checked);
@@ -41,12 +39,11 @@ class Settings {
         this.localStorageManager.setProperty("showNetworkLatency", this.showNetworkLatencyEl.checked);
         this.localStorageManager.setProperty("pingServer", this.pingServerEl.value);
         this.localStorageManager.setProperty("refreshInterval", this.refreshIntervalEl.value);
-
+        location.reload()
     }
 
     loadSettings() {
         const showLevelBattery = this.localStorageManager.getProperty("showLevelBattery");
-        const showDate = this.localStorageManager.getProperty("showDate");
         const showYear = this.localStorageManager.getProperty("showYear");
         const showMonth = this.localStorageManager.getProperty("showMonth");
         const showDay = this.localStorageManager.getProperty("showDay");
@@ -60,9 +57,6 @@ class Settings {
 
         if (showLevelBattery !== undefined) {
             this.showLevelBatteryEl.checked = showLevelBattery;
-        }
-        if (showDate !== undefined) {
-            this.showDateEl.checked = showDate;
         }
         if (showYear !== undefined) {
             this.showYearEl.checked = showYear;

@@ -1,11 +1,15 @@
+import {LocalStorageManager} from "./LocalStorageManager";
+
 class NetworkLatency {
     _host
     set host(value) {
-        this._host = 'https://'+ value;
+        this._host = 'https://' + value;
     }
 
     constructor() {
         this.latencyEl = document.querySelector("#latency")
+        this.localStorageManager = new LocalStorageManager('mySettings')
+
     }
 
 
@@ -17,14 +21,15 @@ class NetworkLatency {
                 'Access-Control-Allow-Origin': 'http://localhost:8000'
             }
         }).then(() => {
-                const end = new Date().getTime();
-                return end - start;
-            });
+            const end = new Date().getTime();
+            return end - start;
+        });
     }
-    measurePeriodicLatency(){
-        setInterval(async ()=>{
+
+    measurePeriodicLatency() {
+        setInterval(async () => {
             this.latencyEl.innerHTML = await this.getLatency() + ' ms'
-        }, 1000);
+        }, this.localStorageManager.getProperty("refreshInterval") ?? 1000);
     }
 }
 
