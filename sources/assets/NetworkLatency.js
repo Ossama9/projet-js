@@ -29,9 +29,9 @@ class NetworkLatency {
 
     measurePeriodicLatency() {
         if (this.localStorageManager.getProperty("showNetworkLatency")) {
+            this.iconLatencyEl.style.display = 'block'
             setInterval(async () => {
                 this.latencyEl.innerHTML = await this.getLatency() + ' ms'
-                this.iconLatencyEl.style.display = 'block'
             }, this.localStorageManager.getProperty("refreshInterval") ?? 1000);
         }
     }
