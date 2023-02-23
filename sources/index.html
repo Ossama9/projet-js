@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/style/window.css">
     <link rel="stylesheet" href="assets/style/calculatrice.css">
     <link rel="stylesheet" href="assets/style/tictactoe.css">
+    <link rel="stylesheet" href="assets/style/horloge.css">
 </head>
 <body id="container">
 <header id="application-header">
@@ -129,8 +130,11 @@
             </div>
             <!--  TIC TAC TOE APP -->
             <div class="content" id="tictactoe">
-                <h1 class="game--title">Tic Tac Toe</h1>
-                <div class="game--container">
+                <div class="message">
+                    <button class="game--restart">Restart</button>
+                    <h2 class="game--status"></h2>
+                </div>
+                <div class="game--container" id="game--container">
                     <div data-cell-index="0" class="cell"></div>
                     <div data-cell-index="1" class="cell"></div>
                     <div data-cell-index="2" class="cell"></div>
@@ -141,14 +145,55 @@
                     <div data-cell-index="7" class="cell"></div>
                     <div data-cell-index="8" class="cell"></div>
                 </div>
-                <h2 class="game--status"></h2>
-                <button class="game--restart">Recommencer le jeu</button>
+
             </div>
             <!--  HORLOGE APP -->
-            <div class="content" id="horloge">
+            <div class="content" id="horloge_B">
+                    <div style="text-align:center">
+                        <span  onclick="currentSlide(1)"><img src="assets/images/lhorloge.png" style="height:50px;"></span>
+                        <span  onclick="currentSlide(2)"><img src="assets/images/chronometre.png" style="height:50px;"></span>
+                        <span  onclick="currentSlide(3)"><img src="assets/images/minuteur.png" style="height:50px;"></span>
+                    </div>
+
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <h1>Horloge</h1>
+                            <div style="text-align: center">
+                                <span id='horloge'></span>
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <h1>Chrono</h1>
+                            <div id="time_app"></div>
+                            <form name="parametre" action="" style="text-align: center">
+                                <input class="btn-chrono" type="button" name="lance" value="Démarrer" onClick="chrono();debut();">
+                                <input class="btn-chrono" type="button" name="pause" value="Stop" onClick="arret();" disabled="disabled">
+                                <input class="btn-chrono" type="button" name="zero" value="Effacer" onClick="arret();raz();" disabled="disabled">
+                                <input class="btn-chrono" type="button" name="intermediaire" value="Intermediaire" onClick="inter();" disabled="disabled">
+                                <input class="btn-chrono" type="button" name="rappel" value="Rappel" onClick="rappeler();" disabled="disabled">
+                            </form>
+                            <div id="presenter">
+                                <p>Temps intermediaire : </p>
+                                <span id="interm"></span>
+                            </div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <h1>Minuterie</h1>
+                            <form style="text-align: center">
+                                <div id="minuterie"> </div>
+                                <input id="nombresec" type="number" onclick="">
+                                <input  class="btn-chrono" type="button" name="demarrer" value="Démarrer" onClick="minuterie()">
+                            </form>
+                        </div>
+
+                    </div>
+                    <br>
             </div>
             <!--  SEETINGS APP -->
             <div class="content" id="settings">
+
             </div>
         <!-- content  -->
         </div>
@@ -158,5 +203,6 @@
 <script src="assets/js/window.js"></script>
 <script src="assets/js/calculatrice.js"></script>
 <script src="assets/js/tictactoe.js"></script>
+<script src="assets/js/horloge.js"></script>
 </body>
 </html>
