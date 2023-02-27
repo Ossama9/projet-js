@@ -14,14 +14,12 @@ setInterval(displayTime, 1000);
 var centi = 0;
 var mili = 0;
 var sec = 0;
-var sec_m = document.getElementById('nombresec').value;
 var sec_;
 var afficher;
 var compteur;
 
 // affichage du compteur à 0
 document.getElementById('time').innerHTML = "0" + sec + ":" + "0" + mili;
-document.getElementById('minuterie').innerHTML = sec_m + ":" + "0" + mili;
 
 
 
@@ -53,21 +51,22 @@ function chrono() {
 }
 
 
-centi_m=0;
-function minuterie() {
-    centi_m++;
-    if (sec_m==0){
-        const audio = new Audio('./style/finish.mp3');
-        audio.play();
-        return 0;
-    }
-    if (centi_m > 9) {
-        centi_m = 0;
-        sec_m--;
-    }
-    afficher = sec_m + ":" + centi_m;
-    document.getElementById("minuterie").innerHTML = afficher;
-    reglage = window.setTimeout("minuterie();",100);
+function minuterie(){
+    let departMinutes = document.getElementById('nombresec').value;
+    let temps = departMinutes * 60
+    const timerElement = document.getElementById("timer")
+    setInterval(async () => {
+        let minutes = parseInt(temps / 60, 10)
+        let secondes = parseInt(temps % 60, 10)
+        if (minutes === 0 && secondes === 0) {
+            const audio = new Audio('./assets/sound/alarme.mp3');
+            await audio.play();
+        }
+        minutes = minutes < 10 ? "0" + minutes : minutes
+        secondes = secondes < 10 ? "0" + secondes : secondes
+        timerElement.innerHTML = "<div class='numbers_div'><div class='numbers'>"+ minutes+ "</div><div class='deux-point'> : </div><div class='numbers'>" + secondes +"</div></div>"
+        temps = temps <= 0 ? 0 : temps - 1
+    }, 1000)
 }
 
 function debut()

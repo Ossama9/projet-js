@@ -1,5 +1,6 @@
 function closeWin(){
     document.getElementById("window").style.display = "none";
+    location.reload();
 }
 
 function fullwidth() {

@@ -33,7 +33,7 @@
     color:white;
     font-size:40px;
     padding: 50px;
-    background-color:black;
+    background-color: #ffd54f;
 }
 
 #time
@@ -44,13 +44,6 @@
     padding: 50px;
 }
 
-#minuterie
-{
-    text-align: center;
-    color:white;
-    font-size:40px;
-    padding: 50px;
-}
 #presenter
 {
     color: white;
@@ -67,4 +60,49 @@
 }
 .btn-chrono:hover {
     background-color: lavenderblush;
+}
+
+#timer{
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 1em;
+    text-transform: uppercase;
+}
+#nombresec{
+    width: 100px;
+    text-align: center;
+    padding-right: 50px;
+    padding-left: 50px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 70px;
+    font-weight: bold;
+    color: black;
+}
+.btn-timer{
+    font-size: 25px;
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+.numbers_div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.numbers{
+    margin: 20px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 70px;
+    font-weight: bold;
+    color: black;
+}
+.deux-point{
+    display: flex;
+    align-items: center;
+    color: black;
 }
