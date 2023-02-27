@@ -1,10 +1,14 @@
+import {LocalStorageManager} from "./LocalStorageManager";
+
 class BatteryManager {
     constructor() {
         this.battery = null;
-        this.batteryLevel = document.querySelector(".battery_level");
-        this.chargingBar = document.querySelector(".charging_bar");
-        this.chargingIcon = document.querySelector(".charging_icon");
-        this.otherInfo = document.querySelector(".other_info");
+        this.batteryLevelEl = document.querySelector(".battery_level");
+        this.chargingBarEl = document.querySelector(".charging_bar");
+        this.chargingIconEl = document.querySelector(".charging_icon");
+        this.otherInfoEl = document.querySelector(".other_info");
+        this.localStorageManager = new LocalStorageManager('mySettings')
+
     }
 
 
@@ -15,37 +19,42 @@ class BatteryManager {
             this.addBatteryEventListeners();
         });
     }
+
     updateAllBatteryInfo() {
         this.updateChargeInfo();
         this.updateLevelInfo();
         this.updateDischargingInfo();
     }
+
     updateLevelInfo() {
-        this.batteryLevel.textContent = this.getChargeLevel();
-        this.chargingBar.style.width = this.getChargeLevel();
+        if (this.localStorageManager.getProperty("showLevelBattery")) {
+            this.batteryLevelEl.textContent = this.getChargeLevel();
+        }
+        this.chargingBarEl.style.width = this.getChargeLevel();
+
     }
+
     updateDischargingInfo() {
         if (this.getDisChargingTime()) {
-            this.getDisChargingTime().textContent = `${parseInt(
-                this.getDisChargingTime()
-            )} minutes`;
-            this.otherInfo.style.display = "flex";
+
+            this.otherInfoEl.style.display = "flex";
         } else {
-            this.otherInfo.style.display = "none";
+            this.otherInfoEl.style.display = "none";
         }
     }
+
     updateChargeInfo() {
         if (this.isInCharge()) {
-            console.log(this.chargingBar)
-            this.chargingBar.style.animationIterationCount = "infinite";
-            this.chargingIcon.style.display = "inline-flex";
-            this.otherInfo.style.display = "none";
+            this.chargingBarEl.style.animationIterationCount = "infinite";
+            this.chargingIconEl.style.display = "inline-flex";
+            this.otherInfoEl.style.display = "none";
         } else {
-            this.chargingIcon.style.display = "none";
-            this.otherInfo.style.display = "inline-flex";
-            this.chargingBar.style.animationIterationCount = "initial";
+            this.chargingIconEl.style.display = "none";
+            this.otherInfoEl.style.display = "inline-flex";
+            this.chargingBarEl.style.animationIterationCount = "initial";
         }
     }
+
     addBatteryEventListeners() {
         this.battery.addEventListener("chargingchange", () => {
             this.updateAllBatteryInfo();

@@ -1,6 +1,5 @@
-.icon-app{
-height: 8vh;
-}
+@import "settings.css";
+
 .battery {
     display: flex;
     align-items: center;
@@ -135,4 +134,12 @@ header section{
 #network-latency{
     display: flex;
     align-items: center;
+}
+.list-icon .element .icon-element img {
+    max-width: 45px;
+    max-height: 50px;
+}
+.icon-app{
+    max-width: 45px;
+    max-height: 50px;
 }
