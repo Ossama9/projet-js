@@ -10,6 +10,7 @@ function displayTime() {
 setInterval(displayTime, 1000);
 
 
+// initialisation des variables
 var centi = 0;
 var mili = 0;
 var sec = 0;
@@ -17,8 +18,11 @@ var sec_m = document.getElementById('nombresec').value;
 var sec_;
 var afficher;
 var compteur;
-document.getElementById('time_app').innerHTML = "0" + sec + ":" + "0" + mili;
+
+// affichage du compteur à 0
+document.getElementById('time').innerHTML = "0" + sec + ":" + "0" + mili;
 document.getElementById('minuterie').innerHTML = sec_m + ":" + "0" + mili;
+
 
 
 function chrono() {
