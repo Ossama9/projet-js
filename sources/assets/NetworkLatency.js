@@ -3,7 +3,7 @@ import {LocalStorageManager} from "./LocalStorageManager";
 class NetworkLatency {
     _host
     set host(value) {
-        this._host = 'https://' + value;
+        this._host = 'https://www.' + value;
     }
 
     constructor() {
@@ -27,11 +27,13 @@ class NetworkLatency {
         });
     }
 
+
     measurePeriodicLatency() {
         if (this.localStorageManager.getProperty("showNetworkLatency")) {
             this.iconLatencyEl.style.display = 'block'
             setInterval(async () => {
-                this.latencyEl.innerHTML = await this.getLatency() + ' ms'
+                const latency = await this.getLatency()
+                this.latencyEl.innerHTML = latency + ' ms'
             }, this.localStorageManager.getProperty("refreshInterval") ?? 1000);
         }
     }
