@@ -16,3 +16,4 @@ clock.start()
 battery.init()
 latency.host = localStorageManager.getProperty("pingServer") ?? 'google.com'
 latency.measurePeriodicLatency()
+

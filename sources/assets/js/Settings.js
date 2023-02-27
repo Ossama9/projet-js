@@ -15,17 +15,15 @@ class Settings {
         this.showNetworkLatencyEl = document.querySelector("#show-latency");
         this.pingServerEl = document.querySelector("#ping-server");
         this.refreshIntervalEl = document.querySelector("#refresh-interval");
+        this.buttonApplyChangesEl = document.querySelector("#apply-changes");
 
+        this.buttonApplyChangesEl.addEventListener('click',this.applyChanges.bind(this));
 
-        this.inputs = document.querySelectorAll('input');
-        this.inputs.forEach(input => {
-            input.addEventListener('change', this.handleInputs.bind(this));
-        });
         this.localStorageManager = new LocalStorageManager('mySettings')
         this.loadSettings();
     }
 
-    handleInputs() {
+    applyChanges() {
         this.localStorageManager.setProperty('showLevelBattery', this.showLevelBatteryEl.checked);
 
         this.localStorageManager.setProperty('showYear', this.showYearEl.checked);

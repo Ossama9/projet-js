@@ -7,7 +7,10 @@
     <meta name="description" content="JavaScript">
     <meta name="theme-color" content="#ffffff">
     <title>Accueil</title>
-    <link rel="stylesheet" href="assets/index.css">
+    <link rel="stylesheet" href="assets/style/index.css">
+    <link rel="stylesheet" href="assets/style/window.css">
+    <link rel="stylesheet" href="assets/style/calculatrice.css">
+    <link rel="stylesheet" href="assets/style/tictactoe.css">
 </head>
 <body id="container">
 <header id="application-header">
@@ -15,7 +18,7 @@
         <div id="date">
 
         </div>
-        
+
         <div id="time">
 
         </div>
@@ -64,7 +67,7 @@
 <main id="my-application">
     <section id="left-side">
         <div class="list-icon">
-            <div class="element">
+            <div class="element" onclick="openCalculatApp()">
                 <div class="icon-element">
                     <img src="assets/images/calculator.png" id="calculator-image" alt="">
                 </div>
@@ -72,7 +75,7 @@
                     Calculator
                 </div>
             </div>
-            <div class="element">
+            <div class="element" onclick="openHorlogeApp()">
                 <div class="icon-element">
                     <img src="assets/images/horloge.png" id="horloge-image" alt="">
                 </div>
@@ -80,15 +83,13 @@
                     Horloge
                 </div>
             </div>
-            <div class="element">
-                <div class="icon-element">
-                    <img src="assets/images/tictactoe.png" id="tictactoe-image" alt="">
-                </div>
+            <div class="element" onclick="openTictactoeApp()">
+                <img class="icon-app" src="assets/images/tic-tac-orteil.png">
                 <div class="title-element">
-                    TicTac Toe
+                    TicToc
                 </div>
             </div>
-            <div class="element">
+            <div class="element" onclick="openSettingsApp()">
                 <div class="icon-element">
                     <img src="assets/images/settings.png" id="settings-image" alt="">
                 </div>
@@ -99,65 +100,137 @@
         </div>
     </section>
     <section id="application-content">
-        <div id="settings-container">
-            <h2>parametre d'affichage</h2>
-            <div class="setting-element" id="setting-battery">
-                <h3>Parametre de batterie</h3>
-                <div class="config">
-                    <label for="show_level_battery">
-                        Afficher l'etat de batterie
-                        <input type="checkbox" name="show_level_battery" id="show_level_battery" checked>
-                    </label>
+
+
+        <div class="window" id="window">
+            <div class="titlebar">
+                <div class="title">Ma fenêtre</div>
+                <div class="buttons">
+                    <button class="minimize" onclick="closeWin()">-</button>
+                    <button class="maximize" onclick="fullwidth();">&#9633;</button>
+                    <button class="close" onclick="closeWin()">x</button>
                 </div>
             </div>
-            <div class="setting-element" id="setting-date">
-                <h3>Parametre de date</h3>
-                <div class="date-option">
-                    <label for="show-year">Afficher l'année</label>
-                    <input type="checkbox" id="show-year" checked>
-                </div>
-                <div class="date-option">
-                    <label for="show-month">Afficher le mois</label>
-                    <input type="checkbox" id="show-month" checked>
-                </div>
-                <div class="date-option">
-                    <label for="show-day">Afficher le jour</label>
-                    <input type="checkbox" id="show-day" checked>
-                </div>
-            </div>
-            <div class="setting-element" id="setting-time">
-                <h3>Time Settings</h3>
-                <div class="time-option">
-                    <label for="show-hours">Show Hours</label>
-                    <input type="checkbox" id="show-hours" checked>
-                </div>
-                <div class="time-option">
-                    <label for="show-minutes">Show Minutes</label>
-                    <input type="checkbox" id="show-minutes" checked>
-                </div>
-                <div class="time-option">
-                    <label for="show-seconds">Show Seconds</label>
-                    <input type="checkbox" id="show-seconds" checked>
+            <!-- content  -->
+            <!--  CALCULATE APP -->
+            <div class="content" id="calculate">
+                <div class="container">
+                    <div class="calculatrice">
+                        <input type="text" placeholder="0" id="output-screen">
+                        <button class="btn-calculatrice" onclick="Clear()">Cl</button>
+                        <button class="btn-calculatrice" onclick="del()">del</button>
+                        <button class="btn-calculatrice" onclick="display('%')">%</button>
+                        <button class="btn-calculatrice" onclick="display('/')">/</button>
+                        <button class="btn-calculatrice" onclick="display('7')">7</button>
+                        <button class="btn-calculatrice" onclick="display('8')">8</button>
+                        <button class="btn-calculatrice" onclick="display('9')">9</button>
+                        <button class="btn-calculatrice" onclick="display('*')">*</button>
+                        <button class="btn-calculatrice" onclick="display('4')">4</button>
+                        <button class="btn-calculatrice" onclick="display('5')">5</button>
+                        <button class="btn-calculatrice" onclick="display('6')">6</button>
+                        <button class="btn-calculatrice" onclick="display('-')">-</button>
+                        <button class="btn-calculatrice" onclick="display('1')">1</button>
+                        <button class="btn-calculatrice" onclick="display('2')">2</button>
+                        <button class="btn-calculatrice" onclick="display('3')">3</button>
+                        <button class="btn-calculatrice" onclick="display('+')">+</button>
+                        <button class="btn-calculatrice" onclick="display('.')">.</button>
+                        <button class="btn-calculatrice" onclick="display('0')">0</button>
+                        <button class="btn-calculatrice" onclick="calculatrice()" class="egale">=</button>
+                    </div>
                 </div>
             </div>
-            <div class="setting-element" id="setting-network">
-                <h3>Parametre de latence réseau</h3>
-                <div class="network-option">
-                    <label for="show-latency">Show Latency</label>
-                    <input type="checkbox" id="show-latency" checked>
+            <!--  TIC TAC TOE APP -->
+            <div class="content" id="tictactoe">
+                <h1 class="game--title">Tic Tac Toe</h1>
+                <div class="game--container">
+                    <div data-cell-index="0" class="cell"></div>
+                    <div data-cell-index="1" class="cell"></div>
+                    <div data-cell-index="2" class="cell"></div>
+                    <div data-cell-index="3" class="cell"></div>
+                    <div data-cell-index="4" class="cell"></div>
+                    <div data-cell-index="5" class="cell"></div>
+                    <div data-cell-index="6" class="cell"></div>
+                    <div data-cell-index="7" class="cell"></div>
+                    <div data-cell-index="8" class="cell"></div>
                 </div>
-                <div class="network-option">
-                    <input type="text" id="ping-server" value="google.com">
-                    <label for="ping-server">Ping Server:</label>
-                </div>
-                <div class="network-option">
-                    <input type="number" id="refresh-interval" min="1" value="100">
-                    <label for="refresh-interval">Refresh Interval (Ms):</label>
+                <h2 class="game--status"></h2>
+                <button class="game--restart">Recommencer le jeu</button>
+            </div>
+            <!--  HORLOGE APP -->
+            <div class="content" id="horloge">
+            </div>
+            <!--  SEETINGS APP -->
+            <div class="content" id="settings">
+
+                <div id="settings-container">
+                    <h2>Parametre d'affichage</h2>
+                    <div class="setting-element" id="setting-battery">
+                        <h3>Parametre de batterie</h3>
+                        <div class="config">
+                            <label for="show_level_battery">
+                                Afficher l'etat de batterie
+                                <input type="checkbox" name="show_level_battery" id="show_level_battery" checked>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="setting-element" id="setting-date">
+                        <h3>Parametre de date</h3>
+                        <div class="date-option">
+                            <label for="show-year">Afficher l'année</label>
+                            <input type="checkbox" id="show-year" checked>
+                        </div>
+                        <div class="date-option">
+                            <label for="show-month">Afficher le mois</label>
+                            <input type="checkbox" id="show-month" checked>
+                        </div>
+                        <div class="date-option">
+                            <label for="show-day">Afficher le jour</label>
+                            <input type="checkbox" id="show-day" checked>
+                        </div>
+                    </div>
+                    <div class="setting-element" id="setting-time">
+                        <h3>Time Settings</h3>
+                        <div class="time-option">
+                            <label for="show-hours">Show Hours</label>
+                            <input type="checkbox" id="show-hours" checked>
+                        </div>
+                        <div class="time-option">
+                            <label for="show-minutes">Show Minutes</label>
+                            <input type="checkbox" id="show-minutes" checked>
+                        </div>
+                        <div class="time-option">
+                            <label for="show-seconds">Show Seconds</label>
+                            <input type="checkbox" id="show-seconds" checked>
+                        </div>
+                    </div>
+                    <div class="setting-element" id="setting-network">
+                        <h3>Parametre de latence réseau</h3>
+                        <div class="network-option">
+                            <label for="show-latency">Show Latency</label>
+                            <input type="checkbox" id="show-latency" checked>
+                        </div>
+                        <div class="network-option">
+                            <label for="ping-server">Ping Server:</label>
+                            <input type="text" id="ping-server" value="google.com">
+                        </div>
+                        <div class="network-option">
+                            <label for="refresh-interval">Refresh Interval (Ms):</label>
+                            <input type="number" id="refresh-interval" min="1" value="100">
+                        </div>
+                    </div>
+                    <div class="setting-element" id="button-section">
+                        <button id="apply-changes">
+                            Appliquer les changements
+                        </button>
+                    </div>
+
                 </div>
             </div>
-        </div>
     </section>
 </main>
-<script src="assets/index.js" type="module"></script>
+<script src="assets/js/index.js" type="module"></script>
+<script src="assets/js/window.js"></script>
+<script src="assets/js/calculatrice.js"></script>
+<script src="assets/js/tictactoe.js"></script>
 </body>
 </html>

@@ -29,15 +29,14 @@ class BatteryManager {
     updateLevelInfo() {
         if (this.localStorageManager.getProperty("showLevelBattery")) {
             this.batteryLevelEl.textContent = this.getChargeLevel();
-            this.chargingBarEl.style.width = this.getChargeLevel();
         }
+        this.chargingBarEl.style.width = this.getChargeLevel();
+
     }
 
     updateDischargingInfo() {
         if (this.getDisChargingTime()) {
-            this.getDisChargingTime().textContent = `${parseInt(
-                this.getDisChargingTime()
-            )} minutes`;
+
             this.otherInfoEl.style.display = "flex";
         } else {
             this.otherInfoEl.style.display = "none";
