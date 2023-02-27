@@ -17,7 +17,7 @@
 
 }
 
-input{
+.calculatrice input{
     grid-column: span 4;
     height: 70px;
     width: 260px;
