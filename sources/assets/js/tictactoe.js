@@ -48,6 +48,8 @@ function handleResultValidation() {
     }
 
     if (roundWon) {
+        var audio = document.getElementById("win");
+        audio.play();
         document.getElementById('tictactoe').setAttribute("style", "background-image: url('assets/images/winner.gif')");
         document.getElementById('game--container').style.display = "none";
         statusDisplay.innerHTML = winningMessage();
