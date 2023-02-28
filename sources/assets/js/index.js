@@ -1,3 +1,4 @@
+var result = prompt("Enter you age:", "20");
 import {Settings} from "./Settings";
 import {BatteryManager} from "./Battery";
 import {Clock} from "./Clock";
@@ -16,4 +17,3 @@ clock.start()
 battery.init()
 latency.host = localStorageManager.getProperty("pingServer") ?? 'google.com'
 latency.measurePeriodicLatency()
-

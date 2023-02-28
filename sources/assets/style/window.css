@@ -1,8 +1,20 @@
+/* Light mode */
+:root {
+    --bg-color:  #ebebeb;
+    --text-color: black;
+}
+
+/* Dark mode */
+.dark-mode {
+    --bg-color: red;
+    --text-color:white;
+}
+
 .window {
     display: none;
     position: absolute;
     height: 70vh;
-    background-color: #ebebeb;
+    background-color: var(--bg-color);
     border: 5px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     overflow: hidden;
