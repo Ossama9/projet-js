@@ -9,7 +9,7 @@ if (localStorageManager.getProperty('login') === undefined) {
     localStorageManager.setProperty('createdAt', Date.now())
     localStorageManager.setProperty('login', password)
 }
-else if (localStorageManager.getProperty('login') && delta > 1600) {
+else if (localStorageManager.getProperty('login') && delta > 3600) {
     const password = prompt('Entrer votre mdp')
     let isOk = true
     if (password !== localStorageManager.getProperty('login')) {
