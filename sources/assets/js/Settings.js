@@ -3,7 +3,7 @@ import {LocalStorageManager} from "./LocalStorageManager";
 class Settings {
     constructor() {
         this.showLevelBatteryEl = document.querySelector("#show_level_battery")
-
+        this.file = '';
         this.showYearEl = document.querySelector("#show-year");
         this.showMonthEl = document.querySelector("#show-month");
         this.showDayEl = document.querySelector("#show-day");
@@ -17,17 +17,43 @@ class Settings {
         this.refreshIntervalEl = document.querySelector("#refresh-interval");
         this.buttonApplyChangesEl = document.querySelector("#apply-changes");
         this.buttonApplyChangesEl = document.querySelector("#apply-changes");
-        this.inputFileEl = document.querySelector("#input-file");
-
         this.exportConfigEl = document.querySelector("#export-config");
+        this.dropAreaEl = document.querySelector(".drag-area");
+        this.dragTextEl = document.querySelector("#header");
+        this.inputFileEl = document.querySelector("#input-file");
 
         this.buttonApplyChangesEl.addEventListener('click', this.applyChanges.bind(this));
         this.exportConfigEl.addEventListener('click', this.exportConfig.bind(this));
 
 
+        this.inputFileEl.addEventListener('change', this.handleInput.bind(this));
+        this.dropAreaEl.addEventListener("dragover", (event) => {
+            event.preventDefault(); //preventing from default behaviour
+            this.dropAreaEl.classList.add("active");
+            this.dragTextEl.textContent = "Release to Upload File";
+        });
+        this.dropAreaEl.addEventListener('dragleave', () => {
+            this.dropAreaEl.classList.remove("active");
+            this.dragTextEl.textContent = "Drag & Drop to Upload File";
+        });
+        this.dropAreaEl.addEventListener('drop', (event) => {
+            event.preventDefault();
+            this.file = event.dataTransfer.files[0]
+            this.dropAreaEl.innerHTML = this.file.name;
+
+        });
+
         this.localStorageManager = new LocalStorageManager('mySettings')
         this.loadSettings();
     }
+
+    handleInput() {
+        this.dropAreaEl.classList.add("active");
+        this.file = this.inputFileEl.files[0];
+        this.dropAreaEl.innerHTML = this.file.name;
+
+    }
+
 
     async applyChanges() {
         this.localStorageManager.setProperty('showLevelBattery', this.showLevelBatteryEl.checked);
@@ -112,7 +138,7 @@ class Settings {
 
 
     async importConfig() {
-        const file = this.inputFileEl.files[0];
+        const file = this.file;
         const fileReader = new FileReader();
         fileReader.readAsText(file);
         return new Promise((resolve, reject) => {
