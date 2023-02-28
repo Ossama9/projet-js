@@ -4,11 +4,12 @@ const localStorageManager = new LocalStorageManager('mySettings')
 
 
 const delta = (Date.now() - localStorageManager.getProperty('createdAt')) / 1000;
+
 if (localStorageManager.getProperty('login') === undefined) {
     const password = prompt('Vous etes nouveau, entrer votre mdp que vous souhaitez')
     localStorageManager.setProperty('login', password)
 }
-else if (localStorageManager.getProperty('login') && delta > 3600) {
+else if (localStorageManager.getProperty('login') && delta > 1600) {
     const password = prompt('Entrer votre mdp')
     let isOk = true
     if (password !== localStorageManager.getProperty('login')) {

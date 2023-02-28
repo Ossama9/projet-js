@@ -13,7 +13,8 @@
     --color: black;
 }
 
-@media only screen and (orientation: portrait) {
+
+@media (max-width: 750px) and (orientation: portrait) {
     body{
         display: none;
     }
