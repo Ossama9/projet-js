@@ -4,9 +4,9 @@ const localStorageManager = new LocalStorageManager('mySettings')
 
 
 const delta = (Date.now() - localStorageManager.getProperty('createdAt')) / 1000;
-
 if (localStorageManager.getProperty('login') === undefined) {
     const password = prompt('Vous etes nouveau, entrer votre mdp que vous souhaitez')
+    localStorageManager.setProperty('createdAt', Date.now())
     localStorageManager.setProperty('login', password)
 }
 else if (localStorageManager.getProperty('login') && delta > 1600) {
@@ -26,7 +26,6 @@ else if (localStorageManager.getProperty('login') && delta > 1600) {
         }
     }
     if (isOk){
-        console.log("azer");
         localStorageManager.setProperty('createdAt', Date.now())
     }
 }
