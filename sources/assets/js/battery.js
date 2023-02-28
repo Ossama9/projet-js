@@ -36,11 +36,11 @@ class BatteryManager {
 
     updateDischargingInfo() {
         if (this.getDisChargingTime()) {
-
             this.otherInfoEl.style.display = "flex";
         } else {
             this.otherInfoEl.style.display = "none";
         }
+        console.log(this.getDisChargingTime())
     }
 
     updateChargeInfo() {

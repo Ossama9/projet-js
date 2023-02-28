@@ -16,14 +16,20 @@ class Settings {
         this.pingServerEl = document.querySelector("#ping-server");
         this.refreshIntervalEl = document.querySelector("#refresh-interval");
         this.buttonApplyChangesEl = document.querySelector("#apply-changes");
+        this.buttonApplyChangesEl = document.querySelector("#apply-changes");
+        this.inputFileEl = document.querySelector("#input-file");
 
-        this.buttonApplyChangesEl.addEventListener('click',this.applyChanges.bind(this));
+        this.exportConfigEl = document.querySelector("#export-config");
+
+        this.buttonApplyChangesEl.addEventListener('click', this.applyChanges.bind(this));
+        this.exportConfigEl.addEventListener('click', this.exportConfig.bind(this));
+
 
         this.localStorageManager = new LocalStorageManager('mySettings')
         this.loadSettings();
     }
 
-    applyChanges() {
+    async applyChanges() {
         this.localStorageManager.setProperty('showLevelBattery', this.showLevelBatteryEl.checked);
 
         this.localStorageManager.setProperty('showYear', this.showYearEl.checked);
@@ -37,6 +43,14 @@ class Settings {
         this.localStorageManager.setProperty("showNetworkLatency", this.showNetworkLatencyEl.checked);
         this.localStorageManager.setProperty("pingServer", this.pingServerEl.value);
         this.localStorageManager.setProperty("refreshInterval", this.refreshIntervalEl.value);
+
+
+        try {
+            await this.importConfig()
+            console.log('Les fichiers de conf sont à jour');
+        } catch (error) {
+            console.error(error);
+        }
         location.reload()
     }
 
@@ -84,6 +98,35 @@ class Settings {
         if (refreshInterval !== undefined) {
             this.refreshIntervalEl.value = refreshInterval;
         }
+    }
+
+    exportConfig() {
+        const mySettings = JSON.stringify(this.localStorageManager.load());
+        const downloadLink = document.createElement('a');
+        downloadLink.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(mySettings));
+        downloadLink.setAttribute('download', 'my-config.json');
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
+
+
+    async importConfig() {
+        const file = this.inputFileEl.files[0];
+        const fileReader = new FileReader();
+        fileReader.readAsText(file);
+        return new Promise((resolve, reject) => {
+            fileReader.onload = async () => {
+                const myConfig = JSON.parse(fileReader.result);
+                for (const key of Object.keys(myConfig)) {
+                    await this.localStorageManager.setProperty(key, myConfig[key]);
+                }
+                resolve();
+            };
+            fileReader.onerror = () => {
+                reject(new Error('Error liée au fichier'));
+            };
+        });
     }
 }
 
