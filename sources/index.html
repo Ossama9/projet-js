@@ -65,13 +65,17 @@
     <section id="left-side">
         <div class="list-icon">
             <div class="element" onclick="openCalculatApp()">
-                <img class="icon-app" src="assets/images/calculatrice.png">
-                <div  class="title-element">
+                <div class="icon-element">
+                    <img src="assets/images/calculator.png" id="calculator-image" alt="">
+                </div>
+                <div class="title-element">
                     Calculator
                 </div>
             </div>
             <div class="element" onclick="openHorlogeApp()">
-                <img class="icon-app" src="assets/images/lhorloge.png">
+                <div class="icon-element">
+                    <img src="assets/images/horloge.png" id="horloge-image" alt="">
+                </div>
                 <div class="title-element">
                     Horloge
                 </div>
@@ -83,7 +87,9 @@
                 </div>
             </div>
             <div class="element" onclick="openSettingsApp()">
-                <img class="icon-app" src="assets/images/equipement.png">
+                <div class="icon-element">
+                    <img src="assets/images/settings.png" id="settings-image" alt="">
+                </div>
                 <div class="title-element">
                     Settings
                 </div>
@@ -190,6 +196,104 @@
                             <div id="timer"></div>
                         </div>
                     </div>
+                    <br>
+            </div>
+            <!--  SEETINGS APP -->
+            <div class="content" id="settings">
+                <div id="settings-container">
+                    <h2>Parametre d'affichage</h2>
+                    <div class="setting-element" id="setting-battery">
+                        <h3>Parametre de batterie</h3>
+                        <div class="date-option">
+                            <label for="show_level_battery">Afficher l'etat de batterie</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show_level_battery" name="check" checked>
+                                    <label for="show_level_battery"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-element" id="setting-date">
+                        <h3>Parametre de date</h3>
+                        <div class="date-option">
+                            <label for="show-year">Afficher l'année</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show-year" name="check" checked>
+                                    <label for="show-year"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="date-option">
+                            <label for="show-month">Afficher le mois</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show-month" name="check" checked>
+                                    <label for="show-month"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="date-option">
+                            <label for="show-day">Afficher les jours</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show-day" name="check" checked>
+                                    <label for="show-day"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-element" id="setting-time">
+                        <h3>Parametre d'heure</h3>
+                        <div class="date-option">
+                            <label for="show-hours">Afficher les heures</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show-hours" name="check" checked>
+                                    <label for="show-hours"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="date-option">
+                            <label for="show-minutes">Afficher les minutes</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show-minutes" name="check" checked>
+                                    <label for="show-minutes"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="date-option">
+                            <label for="show-seconds">Afficher les secondes</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show-seconds" name="check" checked>
+                                    <label for="show-seconds"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-element" id="setting-network">
+                        <h3>Parametre de latence réseau</h3>
+                        <div class="date-option">
+                            <label for="show-latency">Show Latency</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="show-latency" name="check" checked>
+                                    <label for="show-latency"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="date-option">
+                            <label for="ping-server">Ping Server:</label>
+                            <input type="text" id="ping-server" value="google.com">
+                        </div>
+                        <div class="date-option">
+                            <label for="refresh-interval">Refresh Interval (Ms):</label>
+                            <input type="number" id="refresh-interval" min="1" value="100">
+                        </div>
+                    </div>
                     <div class="element" >
                         <button id="export-config">
                             Export config
@@ -207,11 +311,7 @@
                             Appliquer les changements
                         </button>
                     </div>
-                    <br>
-            </div>
-            <!--  SEETINGS APP -->
-            <div class="content" id="settings">
-
+                </div>
             </div>
         <!-- content  -->
         </div>
