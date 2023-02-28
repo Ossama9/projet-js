@@ -117,6 +117,7 @@ function rappeler() {
     document.getElementsByName('intermediaire')[0].style.backgroundColor = 'rgba(50,205,50, 0.25)';
 }
 
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -136,8 +137,8 @@ function showSlides(n) {
         slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].classList = dots[i].classList.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+    dots[slideIndex-1].classList += " active";
 }
