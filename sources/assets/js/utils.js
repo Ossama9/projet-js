@@ -3,7 +3,7 @@ const screenWidth = window.innerWidth;
 document.addEventListener('DOMContentLoaded', () => {
     input = document.querySelector('#input-file')
 })
-if (screenWidth < 750){
+if (screen.orientation.angle === 0 && screenWidth < 750){
     result = confirm('La page marche que sur la rotation')
     if (result){
         location.reload()
@@ -13,3 +13,9 @@ if (screenWidth < 750){
 function clickFunction() {
     input.click()
 }
+
+
+
+// if(screen.orientation.angle === 0){
+//     console.log("test")
+// }
