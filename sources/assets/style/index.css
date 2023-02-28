@@ -2,11 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 .dark {
-    --background-image: url("../images/background_image_dark.jpg")
+    --background-image: url("../images/background_image_dark.jpg");
+    --background-color: #121212;
+    --color:white;
 }
 
 :root {
-    --background-image: url("../images/background_image.jpeg")
+    --background-image: url("../images/background_image.jpeg");
+    --background-color: #ccc;
+    --color:black;
 }
 
 

@@ -38,7 +38,7 @@
     text-align: center;
     color: white;
     font-size: 40px;
-    padding: 50px;
+    padding-top: 50px;
     background-color: #ffd54f;
 }
 
@@ -144,6 +144,9 @@
 .label_horloge {
     font-size: 15px;
     color: #333333;
+}
+.slideshow-container h1{
+    margin: 0;
 }
 
 .stop_son {

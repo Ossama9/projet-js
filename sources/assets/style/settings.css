@@ -1,5 +1,5 @@
 #settings-container {
-    color: black;
+    color: var(--color);
     margin-left: 5px;
     margin-bottom: 40px;
 }
