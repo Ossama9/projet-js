@@ -1,22 +1,21 @@
 // HORLOGE
 function displayTime() {
-    var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    var time = hours + ":" + minutes + ":" + seconds;
-    document.getElementById('horloge').innerHTML = time;
+    let currentTime = new Date();
+    let hours = currentTime.getHours();
+    let minutes = currentTime.getMinutes();
+    let seconds = currentTime.getSeconds();
+    document.getElementById('horloge').innerHTML = "<div class='numbers_div'><div class='numbers'>"+ hours + "</div><div class='deux-point'> : </div><div class='numbers'>" + minutes +"</div><div class='deux-point'> : </div><div class='numbers'>" + seconds;
 }
 setInterval(displayTime, 1000);
 
 
 // initialisation des variables
-var centi = 0;
-var mili = 0;
-var sec = 0;
-var sec_;
-var afficher;
-var compteur;
+let centi = 0;
+let mili = 0;
+let sec = 0;
+let sec_;
+let afficher;
+let compteur;
 
 // affichage du compteur à 0
 document.getElementById('time').innerHTML = "0" + sec + ":" + "0" + mili;
@@ -24,7 +23,6 @@ document.getElementById('time').innerHTML = "0" + sec + ":" + "0" + mili;
 
 
 function chrono() {
-    const audio = new Audio('./style/horloge3.mp3');
     setInterval(function (){
         mili++;
         if (mili > 9) {
@@ -37,7 +35,6 @@ function chrono() {
     if (centi > 9) {
         centi = 0;
         sec++;
-        audio.play();
     }
     if (sec < 10) {
         sec_ = "0" + sec;
@@ -45,7 +42,7 @@ function chrono() {
     else {
         sec_ = sec;
     }
-    afficher = sec_ + ":" + centi + mili;
+    afficher ="<div class='numbers_div'><div class='numbers'>"+ sec_ + "</div><div class='deux-point'> : </div><div class='numbers'>" + centi + mili;
     document.getElementById("time_app").innerHTML = afficher;
     reglage = window.setTimeout("chrono();",100);
 }
@@ -59,8 +56,9 @@ function minuterie(){
         let minutes = parseInt(temps / 60, 10)
         let secondes = parseInt(temps % 60, 10)
         if (minutes === 0 && secondes === 0) {
-            const audio = new Audio('./assets/sound/alarme.mp3');
-            await audio.play();
+            var audio = document.getElementById("myAudio");
+            audio.play();
+            document.getElementById('son').innerHTML="<button class='stop_son' onclick='stopSound()'>ARRÊTER LE SON ET QUITTER</button>"
         }
         minutes = minutes < 10 ? "0" + minutes : minutes
         secondes = secondes < 10 ? "0" + secondes : secondes
@@ -69,6 +67,11 @@ function minuterie(){
     }, 1000)
 }
 
+function stopSound(){
+    var audio = document.getElementById("myAudio");
+    audio.pause();
+    location.reload()
+}
 function debut()
 {
     document.parametre.lance.disabled = "disabled";

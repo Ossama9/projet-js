@@ -149,10 +149,10 @@
             </div>
             <!--  HORLOGE APP -->
             <div class="content" id="horloge_B">
-                    <div style="text-align:center">
-                        <span  onclick="currentSlide(1)"><img src="assets/images/lhorloge.png" style="height:50px;"></span>
-                        <span  onclick="currentSlide(2)"><img src="assets/images/chronometre.png" style="height:50px;"></span>
-                        <span  onclick="currentSlide(3)"><img src="assets/images/minuteur.png" style="height:50px;"></span>
+                    <div class="header_horloge">
+                        <div><span  onclick="currentSlide(1)"><img src="assets/images/lhorloge.png" style="height:30px;"></span><p class="label_horloge">Horloge</p></div>
+                        <div><span  onclick="currentSlide(2)"><img src="assets/images/chronometre.png" style="height:30px;"></span><p class="label_horloge">Chrono</p></div>
+                        <div><span  onclick="currentSlide(3)"><img src="assets/images/minuteur.png" style="height:30px;"></span><p class="label_horloge">Timer</p></div>
                     </div>
 
                     <div class="slideshow-container">
@@ -180,10 +180,12 @@
                         </div>
                         <div class="mySlides fade">
                             <h1>Minuterie</h1>
+                            <audio id="myAudio" src="./assets/sound/alarme.mp3"></audio>
                             <form style="text-align: center">
                                 <input id="nombresec" type="number" placeholder="Minutes" onclick="">
                                 <input class="btn-timer" type="button" name="demarrer" value="Démarrer" onClick="minuterie()">
                             </form>
+                            <label id="son"></label>
                             <div id="timer"></div>
                         </div>
 

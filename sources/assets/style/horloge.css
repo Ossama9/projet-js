@@ -54,9 +54,13 @@
 .btn-chrono {
     text-align: center;
     color:black;
-    font-size:20px;
     border: none;
     cursor: pointer;
+    font-size: 25px;
+    height: 1.8em;
+    padding-right: 50px;
+    padding-left: 50px;
+    border-radius: 10px;
 }
 .btn-chrono:hover {
     background-color: lavenderblush;
@@ -72,12 +76,12 @@
 }
 #nombresec{
     width: 100px;
+    height: 1.5em;
     text-align: center;
     padding-right: 50px;
     padding-left: 50px;
     background-color: white;
-    border-radius: 20px;
-    font-size: 70px;
+    font-size: 30px;
     font-weight: bold;
     color: black;
 }
@@ -86,14 +90,23 @@
     text-align: center;
     background-color: green;
     color: white;
+    height: 1.8em;
+    padding-right: 50px;
+    padding-left: 50px;
+    border-radius: 10px;
+    border-width: 0;
+}
+.btn-timer:hover{
+    background-color: white;
+    color: green;
 }
 .numbers_div{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .numbers{
-    margin: 20px;
+    margin: 10px;
     padding: 50px;
     background-color: white;
     border-radius: 20px;
@@ -105,4 +118,29 @@
     display: flex;
     align-items: center;
     color: black;
+}
+.header_horloge{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    margin-top: -1.3em;
+    padding: 10px;
+    margin-left: -50px;
+}
+.label_horloge{
+    font-size: 15px;
+    color: #333333;
+}
+.stop_son{
+    font-size: 25px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    height: 1.8em;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border-width: 0;
+    margin-top: 10px;
 }
