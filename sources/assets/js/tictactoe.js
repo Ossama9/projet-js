@@ -4,9 +4,9 @@ let gameActive = true;
 let currentPlayer = "X";
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
-const winningMessage = () => `Joueur ${currentPlayer} a Gagner!`;
-const drawMessage = () => `Le jeu s'est terminé par un match nul !`;
-const currentPlayerTurn = () => `C'est au tour de  ${currentPlayer}`;
+const winningMessage = () => `Player ${currentPlayer} has won !`;
+const drawMessage = () => `The game ended in a draw!`;
+const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
 statusDisplay.innerHTML = currentPlayerTurn();
 
@@ -48,6 +48,8 @@ function handleResultValidation() {
     }
 
     if (roundWon) {
+        document.getElementById('tictactoe').setAttribute("style", "background-image: url('assets/images/winner.gif')");
+        document.getElementById('game--container').style.display = "none";
         statusDisplay.innerHTML = winningMessage();
         gameActive = false;
         return;
@@ -81,6 +83,8 @@ function handleRestartGame() {
     gameState = ["", "", "", "", "", "", "", "", ""];
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
+    document.getElementById('tictactoe').setAttribute("style", "background-image: url('')");
+    document.getElementById('game--container').style.display = "";
 }
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
