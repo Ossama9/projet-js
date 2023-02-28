@@ -40,6 +40,7 @@ class BatteryManager {
         } else {
             this.otherInfoEl.style.display = "none";
         }
+        console.log(this.getDisChargingTime())
     }
 
     updateChargeInfo() {
