@@ -127,6 +127,7 @@ header section{
 }
 .list-icon .element .title-element{
     width: fit-content;
+    text-align: center;
 }
 #icon-latency path{
     fill:  limegreen;
