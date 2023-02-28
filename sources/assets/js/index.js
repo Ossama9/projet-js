@@ -12,6 +12,7 @@ const clock = new Clock();
 const latency = new NetworkLatency();
 const battery = new BatteryManager();
 
+
 clock.start()
 battery.init()
 latency.host = localStorageManager.getProperty("pingServer") ?? 'google.com'
