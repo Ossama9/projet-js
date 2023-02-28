@@ -13,11 +13,16 @@ class BatteryManager {
 
 
     init() {
-        navigator.getBattery().then((battery) => {
-            this.battery = battery;
-            this.updateAllBatteryInfo();
-            this.addBatteryEventListeners();
-        });
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then((battery) => {
+                this.battery = battery;
+                this.updateAllBatteryInfo();
+                this.addBatteryEventListeners();
+            });
+        }
+        else {
+            alert("le battery n'est pas pris en charge charge")
+        }
     }
 
     updateAllBatteryInfo() {
