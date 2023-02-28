@@ -1,21 +1,9 @@
 function closeWin(){
     document.getElementById("window").style.display = "none";
-    location.reload();
 }
 
 function fullwidth() {
-    if (document.getElementById("window").style.width<"100%"){
-        document.getElementById("window").style.width = "100%";
-        document.getElementById("window").style.height = "100vh";
-        document.getElementById("window").style.marginTop = "-10vh";
-        document.getElementById("window").style.marginLeft = "0vh";
-    }
-    else {
-        document.getElementById("window").style.width = "50%";
-        document.getElementById("window").style.height = "70vh";
-        document.getElementById("window").style.marginTop = "10vh";
-        document.getElementById("window").style.marginLeft = "50vh";
-    }
+    document.getElementById("window").classList.toggle("full-width")
 }
 
 function openCalculatApp(){
