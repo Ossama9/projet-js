@@ -117,6 +117,7 @@ function rappeler() {
     document.getElementsByName('intermediaire')[0].style.backgroundColor = 'rgba(50,205,50, 0.25)';
 }
 
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -135,7 +136,5 @@ function showSlides(n) {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-
     slides[slideIndex-1].style.display = "block";
-
 }

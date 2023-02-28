@@ -54,7 +54,7 @@
         </div>
         |
         <div id="vibration-status">
-            ON
+           <label id="vibreur"></label>
         </div>
         |
         <div id="network-latency">
@@ -144,6 +144,9 @@
             <!--  TIC TAC TOE APP -->
             <div class="content" id="tictactoe">
                 <div class="message">
+                    <audio id="win">
+                        <source src="./assets/sound/success.mp3" type="audio/mp3">
+                    </audio>
                     <button class="game--restart">Restart</button>
                     <h2 class="game--status"></h2>
                 </div>
