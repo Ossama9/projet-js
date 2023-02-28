@@ -1,5 +1,8 @@
+let input;
+document.addEventListener('DOMContentLoaded', () => {
+    input = document.querySelector('#input-file')
+})
+
 function clickFunction() {
-    const input = document.querySelector('#input-file')
     input.click()
 }
-

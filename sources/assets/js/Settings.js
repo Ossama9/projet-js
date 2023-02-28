@@ -3,6 +3,7 @@ import {LocalStorageManager} from "./LocalStorageManager";
 class Settings {
     constructor() {
         this.file = '';
+        this.bc = new BroadcastChannel('settings');
 
         this.showLevelBatteryEl = document.querySelector("#show_level_battery")
 
@@ -92,6 +93,7 @@ class Settings {
         } catch (error) {
             console.error(error);
         }
+        this.bc.postMessage('reload')
         location.reload()
     }
 
