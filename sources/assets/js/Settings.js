@@ -2,8 +2,13 @@ import {LocalStorageManager} from "./LocalStorageManager";
 
 class Settings {
     constructor() {
-        this.showLevelBatteryEl = document.querySelector("#show_level_battery")
         this.file = '';
+        this.bc = new BroadcastChannel('settings');
+
+        this.showLevelBatteryEl = document.querySelector("#show_level_battery")
+
+        this.darkModeInputEl = document.querySelector("#dark-mode-toggle")
+
         this.showYearEl = document.querySelector("#show-year");
         this.showMonthEl = document.querySelector("#show-month");
         this.showDayEl = document.querySelector("#show-day");
@@ -24,6 +29,8 @@ class Settings {
 
         this.buttonApplyChangesEl.addEventListener('click', this.applyChanges.bind(this));
         this.exportConfigEl.addEventListener('click', this.exportConfig.bind(this));
+
+        this.darkModeInputEl.addEventListener('click', this.switchToDark.bind(this));
 
 
         this.inputFileEl.addEventListener('change', this.handleInput.bind(this));
@@ -51,12 +58,21 @@ class Settings {
         this.dropAreaEl.classList.add("active");
         this.file = this.inputFileEl.files[0];
         this.dropAreaEl.innerHTML = this.file.name;
-
+    }
+    switchToDark() {
+        if (this.darkModeInputEl.checked){
+            document.body.classList.add('dark')
+        }
+        else{
+            document.body.classList.remove('dark')
+        }
     }
 
 
     async applyChanges() {
         this.localStorageManager.setProperty('showLevelBattery', this.showLevelBatteryEl.checked);
+
+        this.localStorageManager.setProperty('enableDarkMode', this.darkModeInputEl.checked);
 
         this.localStorageManager.setProperty('showYear', this.showYearEl.checked);
         this.localStorageManager.setProperty('showMonth', this.showMonthEl.checked);
@@ -77,11 +93,17 @@ class Settings {
         } catch (error) {
             console.error(error);
         }
+        this.bc.postMessage('reload')
         location.reload()
     }
 
     loadSettings() {
+        const enableDarkMode = this.localStorageManager.getProperty("enableDarkMode");
         const showLevelBattery = this.localStorageManager.getProperty("showLevelBattery");
+        if (showLevelBattery !== undefined) {
+            this.darkModeInputEl.checked = enableDarkMode;
+            this.switchToDark()
+        }
         const showYear = this.localStorageManager.getProperty("showYear");
         const showMonth = this.localStorageManager.getProperty("showMonth");
         const showDay = this.localStorageManager.getProperty("showDay");
@@ -96,6 +118,7 @@ class Settings {
         if (showLevelBattery !== undefined) {
             this.showLevelBatteryEl.checked = showLevelBattery;
         }
+
         if (showYear !== undefined) {
             this.showYearEl.checked = showYear;
         }

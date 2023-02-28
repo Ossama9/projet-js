@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="assets/style/calculatrice.css">
     <link rel="stylesheet" href="assets/style/tictactoe.css">
     <link rel="stylesheet" href="assets/style/horloge.css">
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/Login.js" type="module"></script>
 </head>
 <body id="container">
 <header id="application-header">
@@ -220,6 +222,18 @@
             <div class="content" id="settings">
                 <div id="settings-container">
                     <h2>Parametre d'affichage</h2>
+                    <div class="setting-element" id="setting-dark-mode">
+                        <h3>Parametre de dark mode</h3>
+                        <div class="date-option">
+                            <label for="dark-mode-toggle">Activer le dark mode</label>
+                            <div class="item">
+                                <div class="toggle-pill-color">
+                                    <input type="checkbox" id="dark-mode-toggle" name="check">
+                                    <label for="dark-mode-toggle"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="setting-element" id="setting-battery">
                         <h3>Parametre de batterie</h3>
                         <div class="date-option">
@@ -316,13 +330,7 @@
                         <div class="drag-area">
                             <div id="header">Import Your config</div>
                             <span>OR</span>
-                            <button id="button-browse"
-                                    onclick="function clickFunction() {
-                              const input = document.querySelector('#input-file')
-                              input.click()
-                            }
-                            clickFunction()">Browse File
-                            </button>
+                            <button id="button-browse" onclick="clickFunction()">Browse File</button>
                             <input type="file" id="input-file" hidden>
                         </div>
                     </div>

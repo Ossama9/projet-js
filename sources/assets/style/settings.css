@@ -1,14 +1,16 @@
-#settings-container{
-    color: black;
+#settings-container {
+    color: var(--color);
     margin-left: 5px;
     margin-bottom: 40px;
 }
-.date-option{
+
+.date-option {
     display: flex;
     align-items: center;
     margin: 10px 0;
 }
-#settings-container .button{
+
+#settings-container .button {
     padding: 10px 25px;
     font-size: 18px;
     font-weight: 500;
@@ -19,7 +21,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
-#settings-container .button-primary{
+
+#settings-container .button-primary {
     padding: 10px 25px;
     font-size: 18px;
     font-weight: 500;
@@ -30,18 +33,22 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.item{
+
+.item {
     padding-left: 10px;
 }
-#settings-container input{
+
+#settings-container input {
 
 }
-#settings-container input[type="checkbox"]{
-    width: 15px!important;
-    height: 15px!important;
+
+#settings-container input[type="checkbox"] {
+    width: 15px !important;
+    height: 15px !important;
     margin: 0 0 0 20px;
 }
-#settings-container input[type="text"], input[type="number"]{
+
+#settings-container input[type="text"], input[type="number"] {
     all: initial;
     background: white;
     border-radius: 5px;
@@ -50,12 +57,13 @@
     font-weight: 400;
     padding: 10px;
 }
-input[type="text"]::placeholder, input[type="number"]::placeholder{
-}
-.button{
-    text-align: center;
+
+input[type="text"]::placeholder, input[type="number"]::placeholder {
 }
 
+.button {
+    text-align: center;
+}
 
 
 .toggle-pill-color input[type="checkbox"] {
@@ -101,7 +109,8 @@ input[type="text"]::placeholder, input[type="number"]::placeholder{
     box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
     left: 1.6em;
 }
-.drag-area{
+
+.drag-area {
     border: 2px dashed #5256ad;
     height: 200px;
     width: 90%;
@@ -112,27 +121,32 @@ input[type="text"]::placeholder, input[type="number"]::placeholder{
     flex-direction: column;
     margin: auto;
 }
-.drag-area.active{
+
+.drag-area.active {
     color: #fff;
     background: #5256ad;
     font-size: 30px;
 }
-.drag-area .icon{
+
+.drag-area .icon {
     font-size: 100px;
     color: #fff;
 }
-.drag-area #header{
+
+.drag-area #header {
     font-size: 30px;
     font-weight: 500;
     color: #fff;
 }
-.drag-area span{
+
+.drag-area span {
     font-size: 25px;
     font-weight: 500;
     color: #fff;
     margin: 10px 0 15px 0;
 }
-.drag-area button{
+
+.drag-area button {
     padding: 10px 25px;
     font-size: 20px;
     font-weight: 500;
@@ -143,17 +157,20 @@ input[type="text"]::placeholder, input[type="number"]::placeholder{
     border-radius: 5px;
     cursor: pointer;
 }
-.drag-area img{
+
+.drag-area img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
-.container-buttons{
+
+.container-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.container-buttons button{
+
+.container-buttons button {
     margin: 10px 0;
 }
