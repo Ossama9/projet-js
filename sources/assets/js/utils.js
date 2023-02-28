@@ -15,7 +15,3 @@ function clickFunction() {
 }
 
 
-
-// if(screen.orientation.angle === 0){
-//     console.log("test")
-// }
