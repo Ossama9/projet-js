@@ -1,14 +1,15 @@
-#tictactoe{
+#tictactoe {
     background-color: cornflowerblue;
 }
+
 .game--container {
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 306px;
     margin: 50px auto;
 }
+
 .cell {
-    font-family: "Microsoft Sans Serif";
     width: 100px;
     height: 10vh;
     box-shadow: 0 0 0 1px #333333;
@@ -17,25 +18,29 @@
     line-height: 100px;
     font-size: 60px;
 }
-.game--title{
+
+.game--title {
     text-align: center;
     color: black;
     margin-top: 60px;
 }
-.game--status{
+
+.game--status {
     text-align: center;
     color: white;
     font-size: 50px;
     font-weight: 700;
 }
-.game--restart{
+
+.game--restart {
     text-align: center;
     font-weight: 700;
     color: white;
     padding: 10px;
     background-color: darkblue;
 }
-.message{
+
+.message {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
