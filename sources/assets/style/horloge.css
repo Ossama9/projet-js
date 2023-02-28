@@ -1,0 +1,163 @@
+.slideshow-container {
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+#horloge_B {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    padding-top: 50px;
+    background-color: #ffd54f;
+}
+
+.slideshow-container #time {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    padding: 50px;
+}
+
+#presenter {
+    color: white;
+    font-size: 17px;
+    visibility: hidden;
+}
+
+.btn-chrono {
+    text-align: center;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    height: 1.8em;
+    padding-right: 50px;
+    padding-left: 50px;
+    border-radius: 10px;
+}
+
+.btn-chrono:hover {
+    background-color: lavenderblush;
+}
+
+#timer {
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+#nombresec {
+    width: 100px;
+    height: 1.5em;
+    text-align: center;
+    padding-right: 50px;
+    padding-left: 50px;
+    background-color: white;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.btn-timer {
+    font-size: 25px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    height: 1.8em;
+    padding-right: 50px;
+    padding-left: 50px;
+    border-radius: 10px;
+    border-width: 0;
+}
+
+.btn-timer:hover {
+    background-color: white;
+    color: green;
+}
+
+.numbers_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.numbers {
+    margin: 10px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.deux-point {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.header_horloge {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    margin-top: -1.3em;
+    padding: 10px;
+    margin-left: -50px;
+}
+
+.label_horloge {
+    font-size: 15px;
+    color: #333333;
+}
+.slideshow-container h1{
+    margin: 0;
+}
+
+.stop_son {
+    font-size: 25px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    height: 1.8em;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border-width: 0;
+    margin-top: 10px;
+}
