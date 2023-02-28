@@ -1,4 +1,3 @@
-var result = prompt("Enter you age:", "20");
 import {Settings} from "./Settings";
 import {BatteryManager} from "./Battery";
 import {Clock} from "./Clock";
