@@ -2,6 +2,7 @@ const statusDisplay = document.querySelector('.game--status');
 
 let gameActive = true;
 let currentPlayer = "X";
+// les 9 champs du jeu
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
 const winningMessage = () => `Player ${currentPlayer} has won !`;
@@ -10,6 +11,7 @@ const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
 statusDisplay.innerHTML = currentPlayerTurn();
 
+// ici on liste toutes les probalités de gagné
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -33,7 +35,7 @@ function handlePlayerChange() {
 
 function handleResultValidation() {
     let roundWon = false;
-    for (let i = 0; i <= 7; i++) {
+    for (let i = 0; i <= 7; i++) {w
         const winCondition = winningConditions[i];
         let a = gameState[winCondition[0]];
         let b = gameState[winCondition[1]];
