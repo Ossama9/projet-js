@@ -31,7 +31,7 @@ function chrono() {
     }, 1);
     centi++;
     centi*10;//pour passer en dixièmes de sec
-    //on remet à zéro quand on passe à 1seconde
+    //on remet à zéro quand on passe à 1 seconde
     if (centi > 9) {
         centi = 0;
         sec++;
@@ -53,7 +53,10 @@ function minuterie(){
     let temps = departMinutes * 60
     const timerElement = document.getElementById("timer")
     setInterval(async () => {
+        //Le deuxième argument de parseInt (10) spécifie que nous utilisons la base 10 pour la conversion.
+        // calcule de nombre de minutes restant
         let minutes = parseInt(temps / 60, 10)
+        // calcule de nombre de secondes restant
         let secondes = parseInt(temps % 60, 10)
         if (minutes === 0 && secondes === 0) {
             var audio = document.getElementById("myAudio");
@@ -90,6 +93,7 @@ function arret()
     document.parametre.rappel.disabled = "";
 }
 
+// remettre a zero
 function raz()
 {
     document.parametre.zero.disabled = "disabled";
